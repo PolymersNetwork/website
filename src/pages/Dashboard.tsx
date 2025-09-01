@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   const recentActivities = [
     { type: 'recycle', action: 'Recycled 5 plastic bottles', poly: 15, time: '2 hours ago' },
-    { type: 'stake', action: 'Staked 100 POLY tokens', poly: 0, time: '1 day ago' },
+    { type: 'stake', action: 'Staked 100 PLY tokens', poly: 0, time: '1 day ago' },
     { type: 'reward', action: 'Weekly challenge completed', poly: 50, time: '3 days ago' },
     { type: 'purchase', action: 'Bought carbon offset', crt: 10, time: '1 week ago' },
   ];
@@ -65,7 +65,7 @@ const Dashboard = () => {
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-medium flex items-center gap-2">
                   <Coins className="w-4 h-4 text-poly-green" />
-                  POLY Balance
+                  PLY Balance
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -147,7 +147,7 @@ const Dashboard = () => {
                 <Progress value={userData.nextLevelProgress} className="h-2" />
                 <div className="flex justify-between text-xs text-muted-foreground">
                   <span>{userData.nextLevelProgress}% to Level {userData.level + 1}</span>
-                  <span>125 more POLY needed</span>
+                  <span>125 more PLY needed</span>
                 </div>
               </CardContent>
             </Card>
@@ -211,7 +211,7 @@ const Dashboard = () => {
                     <div className="text-right">
                       {activity.poly && (
                         <p className="text-sm font-semibold text-poly-green">
-                          +{activity.poly} POLY
+                          +{activity.poly} PLY
                         </p>
                       )}
                       {activity.crt && (

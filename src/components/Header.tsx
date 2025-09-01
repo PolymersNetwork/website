@@ -177,13 +177,13 @@ const Header = () => {
                 <Coins size={16} className="inline-block mr-1.5" /> Tokenomics
               </Link>
               <a 
-                href="/whitepaper.pdf" 
+                href="/docs" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-3 py-2 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <FileText size={16} className="inline-block mr-1.5" /> Whitepaper
+                <FileText size={16} className="inline-block mr-1.5" /> Docs
               </a>
               
               {/* Add theme toggle for mobile */}

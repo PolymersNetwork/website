@@ -4,7 +4,8 @@
 
 // Token types
 export enum TokenType {
-  POLY = 'POLY',
+  PLY = 'PLY',
+  RECO = 'RECO',
   CRT = 'CRT',
   SOL = 'SOL',
   USDC = 'USDC',
@@ -16,37 +17,44 @@ export interface TokenInfo {
   name: string;
   decimals: number;
   color: string;
-  icon: string;
+  icon: string; // Can be emoji, URL, or local asset
 }
 
 export const TOKEN_INFO: Record<TokenType, TokenInfo> = {
-  [TokenType.POLY]: {
-    symbol: 'POLY',
+  [TokenType.PLY]: {
+    symbol: 'PLY',
     name: 'Polymers',
     decimals: 9,
     color: 'hsl(var(--poly-green))',
-    icon: '♻️',
+    icon: '/assets/ply.png',
   },
   [TokenType.CRT]: {
     symbol: 'CRT',
     name: 'Carbon Credits',
-    decimals: 6,
+    decimals: 9,
     color: 'hsl(var(--carbon-blue))',
-    icon: '🌱',
+    icon: '/assets/CRT.png',
   },
   [TokenType.SOL]: {
     symbol: 'SOL',
     name: 'Solana',
     decimals: 9,
     color: '#9945FF',
-    icon: '◎',
+    icon: 'https://cryptoicons.cc/32/9945FF/SOL.png',
   },
   [TokenType.USDC]: {
     symbol: 'USDC',
     name: 'USD Coin',
     decimals: 6,
     color: '#2775CA',
-    icon: '$',
+    icon: 'https://cryptoicons.cc/32/2775CA/USDC.png',
+  },
+  [TokenType.RECO]: {
+    symbol: 'RECO',
+    name: 'RecycloCoin',
+    decimals: 6,
+    color: '#16651c',
+    icon: '/assets/RECO.png',
   },
 };
 
@@ -58,11 +66,12 @@ export const RECYCLING_REWARDS = {
   metal: { poly: 15, crt: 3 },
   electronics: { poly: 25, crt: 5 },
   organic: { poly: 3, crt: 0.5 },
+  eWaste: { poly: 30, crt: 6 }, // NEW: electronic waste rewards
 } as const;
 
 // AI chat costs
 export const AI_CHAT_COSTS = {
-  basicMessage: 5, // POLY tokens per message
+  basicMessage: 5, // PLY tokens per message
   imageAnalysis: 15,
   recyclingTips: 3,
   esgReport: 20,
@@ -89,10 +98,10 @@ export const calculateRecyclingReward = (
 ): { poly: number; crt: number } => {
   const baseRewards = RECYCLING_REWARDS[materialType];
   const multiplier = Math.max(1, weight / 100); // Base reward per 100g
-  
+
   return {
     poly: Math.floor(baseRewards.poly * multiplier),
-    crt: Math.floor(baseRewards.crt * multiplier * 100) / 100, // 2 decimal places
+    crt: Math.floor(baseRewards.crt * multiplier * 100) / 100, // 2 decimals
   };
 };
 
@@ -103,13 +112,11 @@ export const calculateAIChatCost = (
   return AI_CHAT_COSTS[messageType] * quantity;
 };
 
-export const calculateMarketplaceFees = (price: number) => {
-  return {
-    platformFee: price * MARKETPLACE_FEES.platformFee,
-    escrowFee: price * MARKETPLACE_FEES.escrowFee,
-    total: price * (MARKETPLACE_FEES.platformFee + MARKETPLACE_FEES.escrowFee),
-  };
-};
+export const calculateMarketplaceFees = (price: number) => ({
+  platformFee: price * MARKETPLACE_FEES.platformFee,
+  escrowFee: price * MARKETPLACE_FEES.escrowFee,
+  total: price * (MARKETPLACE_FEES.platformFee + MARKETPLACE_FEES.escrowFee),
+});
 
 export const calculateStakingRewards = (
   amount: number,

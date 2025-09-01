@@ -12,16 +12,23 @@ import { Wallet, ChevronDown, Loader2 } from 'lucide-react';
 import { useWallet } from '@/hooks/useWallet';
 import { formatTokenAmount } from '@/lib/format';
 
-const WalletButton = () => {
+// Import real wallet logos
+import PhantomLogo from '@/assets/wallets/phantom.svg';
+import SolflareLogo from '@/assets/wallets/solflare.svg';
+import BackpackLogo from '@/assets/wallets/backpack.png';
+import SuiLogo from '@/assets/wallets/sui.png';
+import MetaMaskLogo from '@/assets/wallets/metamask.svg';
+
+const WalletButton: React.FC = () => {
   const [open, setOpen] = useState(false);
   const { wallet, balances, connecting, connect, disconnect } = useWallet();
 
   const walletProviders = [
-    { id: 'phantom', name: 'Phantom', icon: '👻', type: 'Solana' },
-    { id: 'solflare', name: 'Solflare', icon: '☀️', type: 'Solana' },
-    { id: 'backpack', name: 'Backpack', icon: '🎒', type: 'Solana' },
-    { id: 'sui', name: 'Sui Wallet', icon: '🌊', type: 'Sui' },
-    { id: 'metamask', name: 'MetaMask', icon: '🦊', type: 'Ethereum' },
+    { id: 'phantom', name: 'Phantom', logo: PhantomLogo, type: 'Solana' },
+    { id: 'solflare', name: 'Solflare', logo: SolflareLogo, type: 'Solana' },
+    { id: 'backpack', name: 'Backpack', logo: BackpackLogo, type: 'Solana' },
+    { id: 'sui', name: 'Sui Wallet', logo: SuiLogo, type: 'SUI' },
+    { id: 'metamask', name: 'MetaMask', logo: MetaMaskLogo, type: 'Ethereum' },
   ];
 
   const handleConnect = async (providerId: string) => {
@@ -35,7 +42,7 @@ const WalletButton = () => {
         <div className="hidden md:flex items-center gap-2 px-3 py-2 bg-card border border-border rounded-lg">
           <div className="flex items-center gap-1">
             <span className="text-sm font-satoshi font-semibold text-poly-green">
-              {formatTokenAmount(balances.find(b => b.symbol === 'POLY')?.amount || 0)} POLY
+              {formatTokenAmount(balances.find(b => b.symbol === 'PLY')?.amount || 0)} PLY
             </span>
             <span className="text-xs text-muted-foreground">•</span>
             <span className="text-sm font-satoshi text-carbon-blue">
@@ -88,7 +95,7 @@ const WalletButton = () => {
               {connecting ? (
                 <Loader2 className="w-5 h-5 mr-3 animate-spin" />
               ) : (
-                <span className="text-xl mr-3">{provider.icon}</span>
+                <img src={provider.logo} alt={provider.name} className="w-6 h-6 mr-3" />
               )}
               <div className="flex flex-col items-start">
                 <span className="font-medium">{provider.name}</span>
@@ -102,7 +109,7 @@ const WalletButton = () => {
           ))}
         </div>
         <div className="text-xs text-muted-foreground text-center pt-2">
-          Connect your wallet to start earning POLY tokens and CRT credits through recycling
+          Connect your wallet to start earning PLY tokens and CRT credits through recycling
         </div>
       </DialogContent>
     </Dialog>

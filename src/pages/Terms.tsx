@@ -37,7 +37,7 @@ const Terms = () => {
                   <h2 className="text-2xl font-satoshi font-bold mb-4">2. Description of Service</h2>
                   <p className="text-muted-foreground leading-relaxed">
                     Polymers is a Decentralized Physical Infrastructure Network (DePIN) platform that 
-                    tokenizes recycling activities and environmental actions. Users can earn POLY tokens 
+                    tokenizes recycling activities and environmental actions. Users can earn PLY tokens 
                     and Carbon Credits (CRT) through verified recycling activities, participate in 
                     staking, and trade on our marketplace.
                   </p>
@@ -60,7 +60,7 @@ const Terms = () => {
                 <section>
                   <h2 className="text-2xl font-satoshi font-bold mb-4">4. Token Usage and Risks</h2>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    POLY and CRT tokens are utility tokens, not securities or investments. Key considerations:
+                    PLY and CRT tokens are utility tokens, not securities or investments. Key considerations:
                   </p>
                   <ul className="list-disc list-inside text-muted-foreground space-y-2">
                     <li>Token values may fluctuate significantly</li>

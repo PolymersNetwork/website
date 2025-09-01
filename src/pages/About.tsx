@@ -11,7 +11,7 @@ const About = () => {
     {
       icon: <Recycle className="w-6 h-6" />,
       title: "Tokenized Recycling",
-      description: "Turn your recycling actions into POLY tokens and carbon credits"
+      description: "Turn your recycling actions into PLY tokens and carbon credits"
     },
     {
       icon: <Coins className="w-6 h-6" />,
@@ -43,7 +43,7 @@ const About = () => {
   const stats = [
     { value: "1M+", label: "Recycling Actions" },
     { value: "50K+", label: "Active Users" },
-    { value: "10M+", label: "POLY Tokens Earned" },
+    { value: "10M+", label: "PLY Tokens Earned" },
     { value: "5K+", label: "Tons CO2 Offset" }
   ];
 

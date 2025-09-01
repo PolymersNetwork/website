@@ -22,7 +22,7 @@ export const useWallet = () => {
       
       // Mock token balances
       setBalances([
-        { mint: 'POLY', amount: 1250.50, decimals: 9, symbol: 'POLY' },
+        { mint: 'PLY', amount: 1250.50, decimals: 9, symbol: 'PLY' },
         { mint: 'CRT', amount: 89.75, decimals: 6, symbol: 'CRT' },
         { mint: 'SOL', amount: 2.15, decimals: 9, symbol: 'SOL' },
         { mint: 'USDC', amount: 150.00, decimals: 6, symbol: 'USDC' },

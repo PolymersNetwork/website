@@ -21,9 +21,9 @@ export const formatCarbonCredits = (amount: number): string => {
   return `${formatTokenAmount(amount)} CRT`;
 };
 
-// POLY token formatting
+// PLY token formatting
 export const formatPolyTokens = (amount: number): string => {
-  return `${formatTokenAmount(amount)} POLY`;
+  return `${formatTokenAmount(amount)} PLY`;
 };
 
 // Percentage formatting

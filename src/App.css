@@ -7,6 +7,19 @@
   background-color: #f0fdf0; /* eco-50 */
   color: #14531a; /* eco-900 */
   font-family: 'Inter', sans-serif;
+  transition: background-color 300ms, color 300ms;
+}
+
+/* Responsive root padding */
+@media (max-width: 1024px) {
+  #root {
+    padding: 0.75rem;
+  }
+}
+@media (max-width: 640px) {
+  #root {
+    padding: 0.5rem;
+  }
 }
 
 /* Logo styles */
@@ -15,11 +28,15 @@
   padding: 1em;
   will-change: filter, transform;
   transition: filter 300ms, transform 300ms;
+  display: inline-block;
 }
+
+/* Hover effects with smooth scaling & shadow */
 .logo:hover {
   filter: drop-shadow(0 0 1em #15801caa); /* eco-700 shadow */
   transform: scale(1.05);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 1em #16651caa); /* eco-800 shadow */
 }
@@ -34,20 +51,26 @@
   }
 }
 
-/* Only animate when user allows */
+/* Only animate when user allows motion */
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 12s linear;
   }
 }
 
-/* Card */
+/* Card component */
 .card {
   padding: 2rem;
   margin: 1rem auto;
   border-radius: 1rem;
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(5, 46, 9, 0.15); /* eco-950 shadow */
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(5, 46, 9, 0.2);
 }
 
 /* Docs link */
@@ -55,7 +78,27 @@
   color: #16651c; /* eco-800 */
   font-weight: 500;
   transition: color 200ms;
+  text-decoration: none;
 }
+
 .read-the-docs:hover {
   color: #15801c; /* eco-700 */
+  text-decoration: underline;
+}
+
+/* Utility: Smooth image scaling for logos/icons */
+img.logo {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mobile-friendly cards */
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+    margin: 0.5rem auto;
+  }
 }

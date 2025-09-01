@@ -43,7 +43,7 @@ const Privacy = () => {
                     <li>Provide, maintain, and improve our services</li>
                     <li>Process transactions and send related information</li>
                     <li>Track and verify recycling activities</li>
-                    <li>Calculate and distribute POLY and CRT rewards</li>
+                    <li>Calculate and distribute PLY and CRT rewards</li>
                     <li>Provide customer support and respond to inquiries</li>
                     <li>Generate ESG metrics and environmental impact reports</li>
                     <li>Comply with legal obligations and prevent fraud</li>

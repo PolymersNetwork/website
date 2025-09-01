@@ -45,7 +45,7 @@ const FAQ = () => {
     },
     {
       question: "What payment methods do you accept?",
-      answer: "We accept USDC, SOL, POLY, and CRT tokens through connected wallets, plus traditional payments via Apple Pay, Google Pay, and integrated payment processors for maximum convenience."
+      answer: "We accept USDC, SOL, PLY, and CRT tokens through connected wallets, plus traditional payments via Apple Pay, Google Pay, and integrated payment processors for maximum convenience."
     },
     {
       question: "How do I get started?",

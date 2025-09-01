@@ -1,14 +1,19 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
+  // Dark mode: toggled via class
+  darkMode: "class",
+
+  // Paths to all template files
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+
   prefix: "",
+
   theme: {
     container: {
       center: true,
@@ -18,6 +23,15 @@ export default {
       },
     },
     extend: {
+      screens: {
+        xs: "480px",  // Small phones
+        sm: "640px",  // Larger phones
+        md: "768px",  // Tablets
+        lg: "1024px", // Small laptops
+        xl: "1280px", // Large laptops
+        "2xl": "1400px", // Desktops
+        "3xl": "1600px", // Large desktops / monitors
+      },
       colors: {
         black: "#000000",
         eco: {
@@ -126,5 +140,6 @@ export default {
       },
     },
   },
+
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
