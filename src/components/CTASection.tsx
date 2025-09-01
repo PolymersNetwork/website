@@ -17,7 +17,7 @@ const CTASection: React.FC = () => {
             Join the Recycling Revolution Today
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Whether you're a consumer, recycler, or corporate partner, Polymers Network makes recycling profitable, traceable, and engaging.
+            Whether you're a consumer, recycler, or corporate partner, Polymers makes recycling profitable, traceable, and engaging.
           </p>
         </div>
 

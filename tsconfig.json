@@ -5,15 +5,18 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "target": "ESNext",                // Use latest JS features
+    "module": "ESNext",                // Keep ES modules
+    "moduleResolution": "Node",        // Node module resolution
+    "baseUrl": ".",                     // Base path for relative imports
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"]               // Alias '@/' to ./src/
     },
-    "noImplicitAny": false,
-    "noUnusedParameters": false,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": false
+    "allowJs": true,                    // Allow JS files
+    "noImplicitAny": false,             // Allow implicit 'any'
+    "strictNullChecks": false,          // Disable strict null checks
+    "noUnusedLocals": false,            // Disable unused local checks
+    "noUnusedParameters": false,        // Disable unused parameter checks
+    "skipLibCheck": true                // Skip type checking of libraries
   }
 }
