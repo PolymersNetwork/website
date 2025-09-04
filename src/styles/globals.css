@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root variables */
+:root {
+  --background: 0 0% 2%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 4%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 120 65% 35%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 120 20% 12%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 120 45% 25%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14%;
+  --input: 0 0% 14%;
+  --ring: 120 65% 35%;
+  --poly-green: 120 65% 35%;
+  --poly-green-light: 120 65% 45%;
+  --poly-green-dark: 120 65% 25%;
+  --carbon-blue: 200 80% 45%;
+  --token-gold: 45 100% 55%;
+  --radius: 0.75rem;
+}
+
+/* Light mode overrides */
+.light-mode {
+  --background: 0 0% 99%;
+  --foreground: 0 0% 8%;
+  --card: 0 0% 97%;
+  --card-foreground: 0 0% 8%;
+  --popover: 0 0% 97%;
+  --popover-foreground: 0 0% 8%;
+  --primary: 120 65% 35%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 120 15% 92%;
+  --secondary-foreground: 0 0% 8%;
+  --muted: 0 0% 92%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 120 45% 25%;
+  --accent-foreground: 0 0% 98%;
+  --border: 0 0% 88%;
+  --input: 0 0% 94%;
+  --ring: 120 65% 35%;
+  --poly-green: 120 65% 35%;
+  --poly-green-light: 120 65% 45%;
+  --poly-green-dark: 120 65% 25%;
+  --carbon-blue: 200 80% 45%;
+  --token-gold: 45 100% 55%;
+}
+
+/* Base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  letter-spacing: -0.025em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Gradients */
+.poly-gradient { background: linear-gradient(135deg, hsl(var(--poly-green)) 0%, hsl(var(--poly-green-dark)) 100%); }
+.carbon-gradient { background: linear-gradient(135deg, hsl(var(--carbon-blue)) 0%, hsl(var(--poly-green)) 100%); }
+.token-gradient { background: linear-gradient(135deg, hsl(var(--token-gold)) 0%, hsl(var(--poly-green)) 100%); }
+
+/* Cosmic glow */
+.cosmic-glow {
+  position: relative;
+}
+.cosmic-glow::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  z-index: -1;
+}
+
+/* Task card animation */
+.task-card {
+  transition: all 0.3s ease-in-out;
+}
+.task-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+}
+
+/* Utility for selection */
+::selection {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* Responsive font sizes */
+@screen sm { body { font-size: 0.9rem; } }
+@screen md { body { font-size: 1rem; } }
+@screen lg { body { font-size: 1.05rem; } }
+@screen xl { body { font-size: 1.1rem; } }
+@screen 2xl { body { font-size: 1.15rem; } }

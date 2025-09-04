@@ -1,55 +1,67 @@
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Global base styles and custom properties */
 @layer base {
   :root {
-    /* Dark mode palette */
-    --background: 0 0% 6%;
+    /* Dark theme palette (deep-black / pearl-black) */
+    --background: 0 0% 2%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 10%;
+    --card: 0 0% 4%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 10%;
+    --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
+
     --primary: 120 65% 35%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 120 20% 15%;
+    --secondary: 120 20% 12%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 18%;
+
+    --muted: 0 0% 14%;
     --muted-foreground: 0 0% 65%;
     --accent: 120 45% 25%;
     --accent-foreground: 0 0% 98%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
     --ring: 120 65% 35%;
+
     --poly-green: 120 65% 35%;
     --poly-green-light: 120 65% 45%;
     --poly-green-dark: 120 65% 25%;
     --carbon-blue: 200 80% 45%;
     --token-gold: 45 100% 55%;
+
     --radius: 0.75rem;
   }
 
+  /* Light mode overrides */
   .light-mode {
-    /* Light mode palette */
     --background: 0 0% 99%;
     --foreground: 0 0% 8%;
     --card: 0 0% 97%;
     --card-foreground: 0 0% 8%;
     --popover: 0 0% 97%;
     --popover-foreground: 0 0% 8%;
+
     --primary: 120 65% 35%;
     --primary-foreground: 0 0% 98%;
     --secondary: 120 15% 92%;
     --secondary-foreground: 0 0% 8%;
+
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 45%;
     --accent: 120 45% 25%;
     --accent-foreground: 0 0% 98%;
+
     --border: 0 0% 88%;
     --input: 0 0% 94%;
     --ring: 120 65% 35%;
@@ -60,23 +72,18 @@
     --token-gold: 45 100% 55%;
   }
 
-  * {
-    @apply border-border;
-  }
+  /* Global element styles */
+  * { @apply border-border; }
 
   body {
-    @apply bg-background font-inter text-foreground antialiased;
+    @apply bg-background text-foreground font-inter antialiased;
     letter-spacing: -0.025em;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  .font-satoshi {
-    font-family: 'Satoshi', sans-serif;
-  }
+  .font-satoshi { font-family: 'Satoshi', sans-serif; }
 
-  ::selection {
-    @apply bg-primary text-primary-foreground;
-  }
+  ::selection { @apply bg-primary text-primary-foreground; }
 
   /* Gradients */
   .poly-gradient { background: linear-gradient(135deg, hsl(var(--poly-green)) 0%, hsl(var(--poly-green-dark)) 100%); }
@@ -126,33 +133,18 @@
 
   /* Nav pills */
   .nav-pill { @apply backdrop-blur-md bg-card border border-border rounded-full; }
-  .nav-pill-item {
-    @apply px-4 py-2 text-sm rounded-full transition-colors;
-  }
-  .nav-pill-item:hover, .nav-pill-item.active {
-    @apply bg-accent text-accent-foreground;
-  }
+  .nav-pill-item { @apply px-4 py-2 text-sm rounded-full transition-colors; }
+  .nav-pill-item:hover, .nav-pill-item.active { @apply bg-accent text-accent-foreground; }
 
   /* Icon glow */
-  .icon-glow {
-    filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
-    transition: filter 0.3s ease;
-  }
+  .icon-glow { filter: drop-shadow(0 0 6px rgba(255,255,255,0.3)); transition: filter 0.3s ease; }
   .light-mode .icon-glow { filter: drop-shadow(0 0 6px rgba(64,64,64,0.2)); }
-  .collapsible-trigger:hover .icon-glow {
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
-  }
-  .light-mode .collapsible-trigger:hover .icon-glow {
-    filter: drop-shadow(0 0 10px rgba(64,64,64,0.3));
-  }
+  .collapsible-trigger:hover .icon-glow { filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
+  .light-mode .collapsible-trigger:hover .icon-glow { filter: drop-shadow(0 0 10px rgba(64,64,64,0.3)); }
 
   /* Task cards */
-  .task-card {
-    @apply transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:border-primary/30;
-  }
-  .task-card.dragging {
-    @apply scale-105 shadow-lg border-primary opacity-70 rotate-1 z-10;
-  }
+  .task-card { @apply transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:border-primary/30; }
+  .task-card.dragging { @apply scale-105 shadow-lg border-primary opacity-70 rotate-1 z-10; }
   .task-card.dragged-over { @apply border-primary border-dashed; }
   .task-card-enter { @apply opacity-0 -translate-y-4; }
   .task-card-enter-active { @apply opacity-100 translate-y-0 transition-all duration-300 ease-out; }
@@ -162,7 +154,7 @@
   /* Column highlight */
   .column-highlight { @apply bg-accent/20 transition-all duration-300; }
 
-  /* Responsive breakpoints for optimized devices */
+  /* Responsive font sizes */
   @screen sm { body { font-size: 0.9rem; } }
   @screen md { body { font-size: 1rem; } }
   @screen lg { body { font-size: 1.05rem; } }
@@ -170,11 +162,6 @@
   @screen 2xl { body { font-size: 1.15rem; } }
 
   /* Mobile optimizations */
-  @media (max-width: 640px) {
-    .nav-pill { @apply px-2 py-1; }
-    .task-card { @apply p-3; }
-  }
-  @media (max-width: 768px) {
-    .card, .cosmic-card { @apply p-4 m-2; }
-  }
+  @media (max-width: 640px) { .nav-pill { @apply px-2 py-1; } .task-card { @apply p-3; } }
+  @media (max-width: 768px) { .card, .cosmic-card { @apply p-4 m-2; } }
 }

@@ -1,104 +1,68 @@
-/* Root layout */
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
-  background-color: #f0fdf0; /* eco-50 */
-  color: #14531a; /* eco-900 */
-  font-family: 'Inter', sans-serif;
-  transition: background-color 300ms, color 300ms;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Responsive root padding */
-@media (max-width: 1024px) {
+@layer base {
+  /* Root layout */
   #root {
-    padding: 0.75rem;
+    @apply max-w-[1280px] mx-auto p-4 text-center bg-eco-50 text-eco-900 font-inter transition-colors duration-300;
   }
-}
-@media (max-width: 640px) {
-  #root {
-    padding: 0.5rem;
+
+  @screen lg {
+    #root { @apply p-3; }
   }
-}
-
-/* Logo styles */
-.logo {
-  height: 6em;
-  padding: 1em;
-  will-change: filter, transform;
-  transition: filter 300ms, transform 300ms;
-  display: inline-block;
-}
-
-/* Hover effects with smooth scaling & shadow */
-.logo:hover {
-  filter: drop-shadow(0 0 1em #15801caa); /* eco-700 shadow */
-  transform: scale(1.05);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 1em #16651caa); /* eco-800 shadow */
-}
-
-/* Spin animation */
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  @screen sm {
+    #root { @apply p-2; }
   }
-  to {
-    transform: rotate(360deg);
+
+  /* Logo styles */
+  .logo {
+    @apply inline-block h-24 p-4 transition-transform transition-shadow duration-300;
+    will-change: filter, transform;
   }
-}
 
-/* Only animate when user allows motion */
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 12s linear;
+  /* Hover effects */
+  .logo:hover {
+    filter: drop-shadow(0 0 1em #15801caa);
+    transform: scale-105;
   }
-}
+  .logo.react:hover {
+    filter: drop-shadow(0 0 1em #16651caa);
+  }
 
-/* Card component */
-.card {
-  padding: 2rem;
-  margin: 1rem auto;
-  border-radius: 1rem;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(5, 46, 9, 0.15); /* eco-950 shadow */
-  transition: transform 250ms ease, box-shadow 250ms ease;
-}
+  /* Spin animation */
+  @keyframes logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 12s linear;
+    }
+  }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(5, 46, 9, 0.2);
-}
-
-/* Docs link */
-.read-the-docs {
-  color: #16651c; /* eco-800 */
-  font-weight: 500;
-  transition: color 200ms;
-  text-decoration: none;
-}
-
-.read-the-docs:hover {
-  color: #15801c; /* eco-700 */
-  text-decoration: underline;
-}
-
-/* Utility: Smooth image scaling for logos/icons */
-img.logo {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Mobile-friendly cards */
-@media (max-width: 768px) {
+  /* Card component */
   .card {
-    padding: 1rem;
-    margin: 0.5rem auto;
+    @apply p-8 m-4 rounded-2xl bg-white shadow-md transition-transform transition-shadow duration-250;
+  }
+  .card:hover {
+    @apply -translate-y-1 shadow-lg;
+  }
+
+  @screen md {
+    .card { @apply p-4 m-2; }
+  }
+
+  /* Docs link */
+  .read-the-docs {
+    @apply text-eco-800 font-medium transition-colors duration-200 no-underline;
+  }
+  .read-the-docs:hover {
+    @apply text-eco-700 underline;
+  }
+
+  /* Utility: Smooth image scaling for logos/icons */
+  img.logo {
+    @apply block mx-auto max-w-full h-auto object-contain;
   }
 }
